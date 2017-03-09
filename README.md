@@ -8,7 +8,19 @@
 ">点击Demo查看</a>
 
  - JavaScript
+
+ 
 >JavaScript Task 01<br>
-<a href="https://charleshu08.github.io/baidu_ife/index.html
+<a href="https://charleshu08.github.io/baidu_ife/js/task1/index.html
 ">点击Demo查看</a>
+
+> JavaScript Task 02<br>
+<a href="https://charleshu08.github.io/baidu_ife/js/task2/index.html
+">点击Demo查看</a>
+> 
+>JavaScript Task 03<br>
+<a href="https://charleshu08.github.io/baidu_ife/js/task3/index.html
+">点击Demo查看</a>
+
+
 
