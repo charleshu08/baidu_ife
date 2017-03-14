@@ -1,0 +1,116 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Task 04</title>
+</head>
+<body>
+<div>
+请输入数字：<input id ="input" type="text" placeholder="输入数字" >
+<button id="leftbtnin">左侧入</button>
+<button id="rightbtnin">右侧入</button>
+<button id="leftbtnout">左侧出</button>
+<button id="rigntbtnout">右侧出</button>
+</div>
+<div id="list">
+</div>
+<script type="text/javascript">
+//var intext=document.getElementById("input").value;
+var btnlfin=document.getElementById("leftbtnin");
+var btnrhin=document.getElementById("rightbtnin");
+var btnlfout=document.getElementById("leftbtnout");
+var btnrhout=document.getElementById("rigntbtnout");
+var list=new Array();
+
+function leftin(){
+	var intext=document.getElementById("input").value;
+	if (intext=="") {
+		alert("请输入数字！");
+		return false;
+	} else if((isNaN(intext)))
+	{
+		alert("你输入的不是一个数字，请重新输入！");
+	}else{	
+	var inx=document.getElementById("input").value;
+	list.unshift(inx);
+	display();
+   }
+}
+
+function rightin(){
+	var intext=document.getElementById("input").value;
+	if (intext=="") {
+		alert("请输入数字！");
+		return false;
+	} else if((isNaN(intext)))
+	{
+		alert("你输入的不是一个数字，请重新输入！");
+	}else{	
+	var inx=document.getElementById("input").value;
+	list.push(inx);
+	display();
+  }
+}
+	
+	
+function leftout(){
+	var le=list.length;
+	if(le<1){
+		alert("没有了！")
+	} else{
+		var item=list.shift();
+		var itmes="删除的是："+item;
+		alert(itmes);
+		display();
+
+	}
+}
+ function rightout(){
+ 	var leg=list.length;
+ 	if(leg<1){
+ 		alert("没有了！");
+ 	} else{
+ 		var itemm=list.pop();
+ 		var itemms="删除的是："+itemm;
+ 		alert(itemms);
+ 		display();
+ 	}
+ }
+
+
+function display(){
+	var listbtn=document.getElementById('list');
+	listbtn.innerHTML="";
+	for(var i=0;i<list.length;i++){
+		 listbtn.innerHTML+="<button>"+list[i]+"</button>";
+
+	}
+
+}
+
+function init()
+{
+ btnlfin.onclick=function(){
+ 	leftin();
+ }
+
+ btnrhin.onclick=function(){
+ 	rightin();
+ }
+
+ btnlfout.onclick=function(){
+ 	leftout();
+ }
+
+ btnrhout.onclick=function(){
+ 	rightout();
+ }
+
+}
+init();
+
+
+
+</script>
+</body>
+</html>
