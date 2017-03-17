@@ -1,0 +1,204 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Task 05</title>
+<style type="text/css">
+	ul li{
+		font-size: 16px;
+		font-weight:bold;
+		float:left;
+		margin-right:5px;
+		color: blue;
+		width: 20px;
+		height: 10px;
+		padding: 10px;
+		background:#abcdef;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<div>
+请输入数字：<input id ="input" type="text" placeholder="输入数字" >
+<button id="leftbtnin">左侧入</button>
+<button id="rightbtnin">右侧入</button>
+<button id="leftbtnout">左侧出</button>
+<button id="rigntbtnout">右侧出</button>
+<button id="maopao">冒泡排序</button>
+<button id="random">随机生成</button>
+</div>
+<ul id="list" style="list-style: none;">
+	
+</ul> 
+
+<script type="text/javascript">
+//var intext=document.getElementById("input").value;
+var btnlfin=document.getElementById("leftbtnin");
+var btnrhin=document.getElementById("rightbtnin");
+var btnlfout=document.getElementById("leftbtnout");
+var btnrhout=document.getElementById("rigntbtnout");
+var ranbtn=document.getElementById("random");
+var maobtn=document.getElementById("maopao");
+var list=new Array();
+//var data=[0,0,0,0,0];
+
+function leftin(){
+	var intext=document.getElementById("input").value;
+	if (intext=="") {
+		alert("请输入数字！");
+		return false;
+	} else if((isNaN(intext)))
+	{
+		alert("你输入的不是一个数字，请重新输入！");
+	}else if((10<parseInt(intext))&&(parseInt(intext)<100)){
+	     var inx=document.getElementById("input").value;
+	     list.unshift(inx);
+	     display();
+	}else{	
+		alert("请输入10-100之间的数字");
+   }
+}
+
+function rightin(){
+	var intext=document.getElementById("input").value;
+	if (intext=="") {
+		alert("请输入数字！");
+		return false;
+	} else if((isNaN(intext)))
+	{
+		alert("你输入的不是一个数字，请重新输入！");
+	}else{	
+		if((10<parseInt(intext))&&(parseInt(intext)<100)){
+	    var inx=document.getElementById("input").value;
+	    list.push(inx);
+	    display();
+    }else{
+    	alert("请输入10-100之间的数字");
+    }
+  }
+}
+	
+	
+function leftout(){
+	var le=list.length;
+	if(le<1){
+		alert("没有了！")
+	} else{
+		var item=list.shift();
+		var itmes="删除的是："+item;
+		alert(itmes);
+		display();
+
+	}
+}
+ function rightout(){
+ 	var leg=list.length;
+ 	if(leg<1){
+ 		alert("没有了！");
+ 	} else{
+ 		var itemm=list.pop();
+ 		var itemms="删除的是："+itemm;
+ 		alert(itemms);
+ 		display();
+ 	}
+ }
+
+
+function display(){
+	var listbtn=document.getElementById('list');
+	var lis= listbtn.getElementsByTagName("li");
+	listbtn.innerHTML="";
+	for(var i=0;i<list.length;i++){
+		 listbtn.innerHTML+="<li>"+list[i]+"</li>";
+		 lis[i].style.height=list[i]+"px";
+		 lis[i].style.marginTop=(100-list[i])+"px";
+
+	}
+
+}
+
+
+function randombtn(){
+	list=[0,0,0,0,0];
+	for(var i=0;i<list.length;i++){
+		list[i]=Math.floor(Math.random()*88+11);
+	}
+	var listbtn=document.getElementById('list');
+	var lis= listbtn.getElementsByTagName("li");
+	listbtn.innerHTML="";
+	for(var i=0;i<list.length;i++){
+		 listbtn.innerHTML+="<li>"+list[i]+"</li>";
+		 lis[i].style.height=list[i]+"px";
+		 lis[i].style.marginTop=(100-list[i])+"px";
+
+	}
+}
+
+function startbubblesort(dd){
+
+	bubbleSort(dd);
+	var listbtn=document.getElementById('list');
+	var lis= listbtn.getElementsByTagName("li");
+	listbtn.innerHTML="";
+	for(var i=0;i<dd.length;i++){
+		 listbtn.innerHTML+="<li>"+dd[i]+"</li>";
+		 lis[i].style.height=dd[i]+"px";
+		 lis[i].style.marginTop=(100-dd[i])+"px";
+
+	}
+}
+
+function swap(items, firstIndex, secondIndex){
+  var temp = items[firstIndex];
+  items[firstIndex] = items[secondIndex];
+  items[secondIndex] = temp;
+};
+
+function bubbleSort(items){
+  var len = items.length, i, j, stop;
+
+  for (i = 0; i < len; i++){
+    for (j = 0, stop = len-i; j < stop; j++){
+      if (items[j] > items[j+1]){
+        swap(items, j, j+1);
+      }
+    }
+  }
+  return items;
+}
+
+
+
+function init()
+{
+ btnlfin.onclick=function(){
+ 	leftin();
+ }
+
+ btnrhin.onclick=function(){
+ 	rightin();
+ }
+
+ btnlfout.onclick=function(){
+ 	leftout();
+ }
+
+ btnrhout.onclick=function(){
+ 	rightout();
+ }
+  ranbtn.onclick=function(){
+  	randombtn();
+  }
+  maobtn.onclick=function(){
+  	startbubblesort(list);
+  }
+
+}
+init();
+
+
+
+</script>
+</body>
+</html>

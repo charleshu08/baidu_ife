@@ -26,5 +26,9 @@
 <a href="https://charleshu08.github.io/baidu_ife/js/task4/index.html
 ">点击Demo查看</a>
 
+> JavaScript Task 05<br>
+<a href="https://charleshu08.github.io/baidu_ife/js/task5/index.html
+">点击Demo查看</a>
+
 
 
