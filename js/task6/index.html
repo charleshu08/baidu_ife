@@ -1,0 +1,137 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Task 06</title>
+<style type="text/css">
+	ul li {
+		background:blue;
+		float:left;
+		padding:5px;
+		margin-right:30px;
+		width: auto;
+		text-align: center;
+		color: green;
+		font-weight:bold;
+	}
+	.active {
+			color: #f00;
+		}
+</style>
+</head>
+<body>
+<div>
+请输入：<textarea id ="input" type="text" rows="3" cols="15" placeholder="输入点什么吧！">输入点什么吧！</textarea> 
+<button id="leftbtnin">左侧入</button>
+<button id="rightbtnin">右侧入</button>
+<button id="leftbtnout">左侧出</button>
+<button id="rigntbtnout">右侧出</button>
+<input id="search" type="text">
+<button id="lookat">查询</button>
+</div>
+<ul id="list" style="list-style:none;">
+</ul>
+<script type="text/javascript">
+//var intext=document.getElementById("input").value;
+var btnlfin=document.getElementById("leftbtnin");
+var btnrhin=document.getElementById("rightbtnin");
+var btnlfout=document.getElementById("leftbtnout");
+var btnrhout=document.getElementById("rigntbtnout");
+var btnlook=document.getElementById("lookat");
+var list=new Array();
+
+function leftin(){
+	var inx=document.getElementById("input").value;
+	list.unshift(inx);
+	display();
+}
+
+function rightin(){
+	var inx=document.getElementById("input").value;
+	list.push(inx);
+	display();
+}
+	
+	
+function leftout(){
+	var le=list.length;
+	if(le<1){
+		alert("没有了！")
+	} else{
+		var item=list.shift();
+		var itmes="删除的是："+item;
+		alert(itmes);
+		display();
+
+	}
+}
+ function rightout(){
+ 	var leg=list.length;
+ 	if(leg<1){
+ 		alert("没有了！");
+ 	} else{
+ 		var itemm=list.pop();
+ 		var itemms="删除的是："+itemm;
+ 		alert(itemms);
+ 		display();
+ 	}
+ }
+
+
+$ = function(el) {
+			return document.querySelector(el);
+		}
+
+
+ function match(){
+ 	var searchvalue=document.getElementById("search").value.trim();
+ 	$("#list").innerHTML = list.map(function(d) {
+				if(searchvalue!=null && searchvalue.length>0) {
+					d =d.replace(new RegExp(searchvalue,"g"),"<span class='active'>"+searchvalue+"</span>");
+				}
+				return "<li>"+d+"</li>";
+			}).join('');
+ 	
+ }
+
+
+function display(){
+	var listbtn=document.getElementById('list');
+	listbtn.innerHTML="";
+	for(var i=0;i<list.length;i++){
+		 listbtn.innerHTML+="<li>"+list[i]+"</li>";
+
+	}
+
+}
+
+function init()
+{
+ btnlfin.onclick=function(){
+ 	leftin();
+ }
+
+ btnrhin.onclick=function(){
+ 	rightin();
+ }
+
+ btnlfout.onclick=function(){
+ 	leftout();
+ }
+
+ btnrhout.onclick=function(){
+ 	rightout();
+ }
+btnlook.onclick=function(){
+	match();
+}
+
+
+}
+init();
+
+
+
+</script>
+</body>
+</html>

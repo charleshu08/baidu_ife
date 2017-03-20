@@ -30,5 +30,11 @@
 <a href="https://charleshu08.github.io/baidu_ife/js/task5/index.html
 ">点击Demo查看</a>
 
+>JavaScript Task 06<br>
+<a href="https://charleshu08.github.io/baidu_ife/js/task6/index.html
+">点击Demo查看</a>
+
+
+
 
 
